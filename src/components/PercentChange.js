@@ -6,6 +6,7 @@ const PercentChange = ({ percent }) => {
     const [color, setColor] = useState()
 
     useEffect(() => {
+
         if (percent) {
             if (percent >= 0) {
                 setColor(colors.green1)

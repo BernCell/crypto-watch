@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import PercentChange from './PercentChange';
+import TableFilters from './TableFilters';
 
 const HeaderInfos = () => {
 
@@ -27,8 +28,15 @@ const HeaderInfos = () => {
                 <li className="global-mkt">
                     Global Market :<PercentChange percent={headerData.market_cap_change_percentage_24h_usd} key={headerData.id} />
                 </li>
+                <li>BTC dominance : {headerData.market_cap_percentage && headerData.market_cap_percentage.btc.toFixed(1) + "%"} </li>
+                <li>ETH dominance : {headerData.market_cap_percentage && headerData.market_cap_percentage.eth.toFixed(1) + "%"} </li>
+
             </ul>
+            <TableFilters />
         </div>
+
+
+
 
 
     );
