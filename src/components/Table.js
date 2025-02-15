@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import TableLine from "./TableLine";
+import ToTop from "./ToTop";
 
 const Table = ({ coinsData }) => {
     console.log(coinsData);
     const [rangeNumber, setRangeNumber] = useState(100);
     const [orderBy, setOrderBy] = useState("")
 
-    const tableHeader = ["Prix", "MarketCap", "Volume", "1h", "1j", "1m", "6m", "1a", "ATH",];
+    const tableHeader = ["Prix", "MarketCap", "Volume", "1h", "1j", "1s", "1m", "6m", "1a", "ATH",];
 
     return (
+        // <div>
+        //    <ToTop /> 
+        // </div>
+
         <div className="table-container">
             <ul className="table-header">
                 <div className="range-container">
@@ -27,6 +32,7 @@ const Table = ({ coinsData }) => {
                         value={rangeNumber}
                         onChange={(e) => setRangeNumber(e.target.value)}
                     />
+                    <ToTop />
                 </div>
                 {tableHeader.map((el) => {
                     return <li key={el}>
@@ -55,6 +61,7 @@ const Table = ({ coinsData }) => {
 
                     <TableLine index={index} coin={coin} />
                 ))}
+
         </div>
     );
 };
