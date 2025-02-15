@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import TableLine from "./TableLine";
 
 const Table = ({ coinsData }) => {
     console.log(coinsData);
     const [rangeNumber, setRangeNumber] = useState(100);
     const [orderBy, setOrderBy] = useState("")
 
-    const tableHeader = ["Prix", "MarketCap", "Volume", "1h", "1j", "1m", "6m", "1a", "ATH",]
+    const tableHeader = ["Prix", "MarketCap", "Volume", "1h", "1j", "1m", "6m", "1a", "ATH",];
 
     return (
         <div className="table-container">
-            <div className="table-header">
+            <ul className="table-header">
                 <div className="range-container">
                     <span>
                         Top{" "}
@@ -28,18 +29,32 @@ const Table = ({ coinsData }) => {
                     />
                 </div>
                 {tableHeader.map((el) => {
-                    <li key={el}>
+                    return <li key={el}>
                         <input
                             type="radio"
                             name="header-el"
                             id={el}
                             defaultChecked={
-                                el === orderBy || el === orderBy + "reverse" ? true : false} />
+                                el === orderBy || el === orderBy + "reverse" ? true : false} onClick={() => {
+                                    if (orderBy === el) {
+
+                                        setOrderBy(el + "reverse")
+                                    } else {
+                                        setOrderBy(el)
+                                    }
+
+                                }} />
                         <label htmlFor={el}>{el}</label>
                     </li>
 
                 })}
-            </div>
+            </ul>
+            {coinsData && coinsData
+                .slice(0, rangeNumber)
+                .map((coin, index) => (
+
+                    <TableLine index={index} coin={coin} />
+                ))}
         </div>
     );
 };

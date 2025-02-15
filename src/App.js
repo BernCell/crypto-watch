@@ -5,6 +5,7 @@ import HeaderInfos from './components/HeaderInfos';
 import GlobalChart from './components/GlobalChart';
 import Table from './components/Table';
 import { dbData } from "./db"
+import TableLine from './components/TableLine';
 
 const App = () => {
   const [coinsData, setCoinsData] = useState([])
@@ -42,6 +43,7 @@ const App = () => {
         <GlobalChart coinsData={coinsData} />
       </header>
       <Table coinsData={coinsData} />
+
 
     </div>
   );
