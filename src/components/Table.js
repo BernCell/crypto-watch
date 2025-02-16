@@ -109,7 +109,7 @@ const Table = ({ coinsData }) => {
                 )
                 .map((coin, index) => (
 
-                    <TableLine index={index} coin={coin} />
+                    <TableLine key={index} index={index} coin={coin} />
                 ))}
 
         </div>
