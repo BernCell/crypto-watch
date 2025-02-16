@@ -7,6 +7,7 @@ import Table from './components/Table';
 import { dbData } from "./db"
 import TableLine from './components/TableLine';
 import ToTop from './components/ToTop';
+import StarIcon from './components/StarIcon';
 
 const App = () => {
   const [coinsData, setCoinsData] = useState([])
@@ -47,6 +48,7 @@ const App = () => {
       </header>
       <Table coinsData={coinsData} />
       <ToTop />
+
 
 
     </div>
